@@ -1,5 +1,6 @@
 package com.example.week_1_project;
 
+import com.example.lib.Json;
 import com.example.lib.WebInfo;
 
 import android.os.Bundle;
@@ -45,6 +46,11 @@ public class MainActivity extends Activity {
 				String inputString = userEnteredField.getText().toString();
 				
 				Log.i("User input", inputString);
+				
+				// calling my json class
+				Json newJson = new Json();
+				
+				Log.i("returned info", newJson.returnJsonData(inputString));
 			}
 		});
         

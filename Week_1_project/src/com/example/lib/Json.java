@@ -86,9 +86,9 @@ public String returnJsonData(String passedInUserInput){
 				primaryGenre = results.getJSONObject(0).getString("primaryGenreName").toString();
 				artistLinkUrl = results.getJSONObject(0).getString("artistLinkUrl").toString();
 
-				//Log.i("name", artistName);
-				//Log.i("name", primaryGenre);
-				//Log.i("name", artistLinkUrl);
+				Log.i("name", artistName);
+				Log.i("name", primaryGenre);
+				Log.i("name", artistLinkUrl);
 
 
 
