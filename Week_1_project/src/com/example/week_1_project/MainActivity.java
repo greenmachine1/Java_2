@@ -7,6 +7,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 import android.view.Menu;
+import android.view.View;
+import android.widget.Button;
+import android.view.View.OnClickListener;
 
 public class MainActivity extends Activity {
 
@@ -27,7 +30,18 @@ public class MainActivity extends Activity {
          {
         	 Log.i("Network Connection", WebInfo.getConnectionType(_context));
          }
-        
+         
+         // creation of my go button
+         Button button = (Button) findViewById(R.id.goButton);
+         button.setOnClickListener(new OnClickListener() {
+         
+        	 // what happens when button is clicked!
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Log.i("yes", "Yes");
+			}
+		});
         
         
     }
