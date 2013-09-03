@@ -4,5 +4,38 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
     
+    
+    <EditText
+        android:id="@+id/userEnteredText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" />
+     <Button
+         android:id="@+id/goButton"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:text="Go!"/>
+
+     <EditText
+         android:id="@+id/Name"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:ems="10"
+         android:inputType="textPersonName" />
+
+
+     <EditText
+         android:id="@+id/genre"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:ems="10"
+         android:inputType="textPersonName" />
+
+     <EditText
+         android:id="@+id/url"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:ems="10"
+         android:inputType="textPersonName" />
 
 </LinearLayout>
