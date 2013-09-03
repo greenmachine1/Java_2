@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.view.View.OnClickListener;
 
 public class MainActivity extends Activity {
@@ -38,8 +39,12 @@ public class MainActivity extends Activity {
         	 // what happens when button is clicked!
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				Log.i("yes", "Yes");
+				
+				// targetting the main edit text box
+				EditText userEnteredField = (EditText) findViewById(R.id.userEnteredText);
+				String inputString = userEnteredField.getText().toString();
+				
+				Log.i("User input", inputString);
 			}
 		});
         
