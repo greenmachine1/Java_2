@@ -19,11 +19,8 @@ import android.util.Log;
 // this class will pull json data from apple api
 public class Json extends MainActivity{
 
-
-
 public String returnJsonData(String passedInUserInput){
 
-	String tempReturnedString = "";
 
 	// creation of url
 	String baseURL = "https://itunes.apple.com/search?term=";
@@ -47,10 +44,10 @@ public String returnJsonData(String passedInUserInput){
 			return "Sure";
 		}
 
-	}catch(MalformedURLException e){
+		}catch(MalformedURLException e){
 		Log.e("Bad Url", "malformed URL");
 		finalURL = null;
-	}
+		}
 
 
 	return null;
