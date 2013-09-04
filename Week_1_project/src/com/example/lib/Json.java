@@ -1,3 +1,12 @@
+/*
+ * Project		Week_1_project
+ * 
+ * Package		com.example.lib
+ * 
+ * @author		Cory Green
+ * 
+ * Date			Sep 4, 2013
+ */
 package com.example.lib;
 
 import java.net.MalformedURLException;
