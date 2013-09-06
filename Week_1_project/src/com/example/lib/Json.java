@@ -20,6 +20,9 @@ import org.json.JSONObject;
 import com.example.lib.WebInfo;
 import com.example.week_1_project.MainActivity;
 
+
+
+import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -28,6 +31,10 @@ import android.util.Log;
 // this class will pull json data from apple api
 public class Json extends MainActivity{
 
+
+	String fileName = "json_string.txt";
+	Context context = this;
+	
 	public String returnJsonData(String passedInUserInput){
 	
 	
@@ -85,6 +92,8 @@ public class Json extends MainActivity{
 				//Log.i("URL Response", result);
 				try {
 	
+					
+					
 					JSONObject json = new JSONObject(result);
 					JSONArray results = json.getJSONArray("results");
 	
@@ -92,6 +101,10 @@ public class Json extends MainActivity{
 					primaryGenre = results.getJSONObject(0).getString("primaryGenreName").toString();
 					artistLinkUrl = results.getJSONObject(0).getString("artistLinkUrl").toString();
 	
+					String fullString = artistName + artistLinkUrl + primaryGenre;
+					
+					
+					
 					Log.i("name", artistName);
 					Log.i("name", primaryGenre);
 					Log.i("name", artistLinkUrl);
