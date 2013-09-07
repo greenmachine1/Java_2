@@ -13,8 +13,10 @@ import com.example.lib.Json;
 import com.example.lib.WebInfo;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -60,6 +62,9 @@ public class MainActivity extends Activity {
 				Json newJson = new Json();
 				
 				Log.i("returned info", newJson.returnJsonData(inputString));
+				
+				Intent myServiceIntent = new Intent(_context, JsonService.class);
+				startService(myServiceIntent);
 			}
 		});
         
