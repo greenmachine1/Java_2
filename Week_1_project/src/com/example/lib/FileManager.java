@@ -2,14 +2,13 @@ package com.example.lib;
 
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
 import android.content.Context;
 import android.util.Log;
 
-public class FileManager {
+public class FileManager extends Json{
 
 	private static FileManager m_instance;
 	

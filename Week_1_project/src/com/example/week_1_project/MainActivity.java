@@ -30,7 +30,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.main);
         
         // creating my global variables
-        Context _context;
+        final Context _context;
         Boolean _connected = false;
         
         _context = this;
