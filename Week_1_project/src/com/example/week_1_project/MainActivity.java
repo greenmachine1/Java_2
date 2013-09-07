@@ -14,6 +14,8 @@ import com.example.lib.WebInfo;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
+import android.os.Messenger;
 import android.app.Activity;
 import android.bluetooth.BluetoothAssignedNumbers;
 import android.content.Context;
@@ -23,19 +25,20 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.view.View.OnClickListener;
 
 public class MainActivity extends Activity {
 
+	private TextView resultText;
+	// creating my global variables
+    Context _context;
+    Boolean _connected = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        
-        // creating my global variables
-        final Context _context;
-        Boolean _connected = false;
-        
+       
         _context = this;
         
         // Detect network connection
@@ -64,10 +67,36 @@ public class MainActivity extends Activity {
 				
 				Log.i("returned info", newJson.returnJsonData(inputString));
 				
+				// my handler.  Handles the return info
+				
+				Handler JsonHandler = new Handler(){
+
+					@Override
+					public void handleMessage(Message msg) {
+						// TODO Auto-generated method stub
+						
+						String response = null;
+						if(msg.arg1 == RESULT_OK && msg.obj != null){
+							try{
+							response = (String) msg.obj;
+							} catch(Exception e){
+								Log.e("", e.getMessage().toString());
+							}
+							
+							resultText.setText(response);
+						}
+					}
+		    		
+		    	}; 
+				
+				
+				
+		    	Messenger jsonMessenger = new Messenger(JsonHandler);
+				
 				Intent myServiceIntent = new Intent(_context, JsonService.class);
 				
 				// basically this passes info to my service
-				myServiceIntent.putExtra(JsonService.NAME_OF_BAND, inputString);
+				myServiceIntent.putExtra(JsonService.NAME_OF_BAND, jsonMessenger);
 				startService(myServiceIntent);
 			}
 		});
