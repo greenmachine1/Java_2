@@ -15,6 +15,7 @@ import com.example.lib.WebInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.app.Activity;
+import android.bluetooth.BluetoothAssignedNumbers;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -64,6 +65,9 @@ public class MainActivity extends Activity {
 				Log.i("returned info", newJson.returnJsonData(inputString));
 				
 				Intent myServiceIntent = new Intent(_context, JsonService.class);
+				
+				// basically this passes info to my service
+				myServiceIntent.putExtra(JsonService.NAME_OF_BAND, inputString);
 				startService(myServiceIntent);
 			}
 		});
