@@ -34,10 +34,11 @@ public class Json extends MainActivity{
 
 	String fileName = "json_string.txt";
 	Context context = this;
+	FileManager fileManager;
 	
-	public String returnJsonData(String passedInUserInput){
 	
 	
+	public String returnJsonData(String passedInUserInput){	
 		// creation of url
 		String baseURL = "https://itunes.apple.com/search?term=";
 		String completeURL = baseURL + passedInUserInput + "&entity=musicArtist&limit=1";
@@ -67,7 +68,7 @@ public class Json extends MainActivity{
 	
 	
 			return null;
-			}
+		}
 	
 	
 		// this actually sends out the request
@@ -91,7 +92,8 @@ public class Json extends MainActivity{
 			protected void onPostExecute(String result){
 				//Log.i("URL Response", result);
 				try {
-	
+					// instantiate my fileManager
+					fileManager = FileManager.getInstance();
 					
 					
 					JSONObject json = new JSONObject(result);
@@ -103,6 +105,8 @@ public class Json extends MainActivity{
 	
 					String fullString = artistName + artistLinkUrl + primaryGenre;
 					
+					// write to my fileManager
+					fileManager.writeStringFile(context, fileName, fullString);
 					
 					
 					Log.i("name", artistName);
