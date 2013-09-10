@@ -23,7 +23,6 @@ import com.example.week_1_project.MainActivity;
 
 
 import android.content.Context;
-import android.content.ContextWrapper;
 import android.os.AsyncTask;
 import android.util.Log;
 

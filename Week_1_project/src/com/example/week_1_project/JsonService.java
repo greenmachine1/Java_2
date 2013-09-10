@@ -1,5 +1,12 @@
 package com.example.week_1_project;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLEncoder;
+
+import com.example.lib.Json.infoRequest;
+import com.example.lib.WebInfo;
+
 import android.app.Activity;
 import android.app.IntentService;
 import android.content.Intent;
@@ -54,7 +61,9 @@ public class JsonService extends IntentService{
 	// method used to get the JSON data
 	public String returnJsonData(String userInput){
 		
+		// creation of url
+		String completeURL = "https://itunes.apple.com/search?term=" + userInput + "&entity=musicArtist&limit=1";
+		
 		return null;
 	}
-
 }
