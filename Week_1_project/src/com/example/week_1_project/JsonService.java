@@ -25,8 +25,6 @@ public class JsonService extends IntentService{
 
 	@Override
 	protected void onHandleIntent(Intent intent) {
-		// TODO Auto-generated method stub
-		Log.i("this is done", "With a service");
 		
 		// this has to do with my messenger from the main activity
 		Bundle extras = intent.getExtras();
@@ -35,6 +33,9 @@ public class JsonService extends IntentService{
 		Messenger messenger = (Messenger) extras.get(NAME_OF_BAND);
 		String keyOfThings = (String) extras.get(KEY_OF_THINGS);
 
+		// calling on my returnJsonData method
+		returnJsonData(keyOfThings);
+		
 		
 		Message message = Message.obtain();
 		message.arg1 = Activity.RESULT_OK;
@@ -48,6 +49,12 @@ public class JsonService extends IntentService{
 			e.printStackTrace();
 		}
 		
+	}
+	
+	// method used to get the JSON data
+	public String returnJsonData(String userInput){
+		
+		return null;
 	}
 
 }

@@ -17,7 +17,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.Messenger;
 import android.app.Activity;
-import android.bluetooth.BluetoothAssignedNumbers;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -30,10 +29,10 @@ import android.view.View.OnClickListener;
 
 public class MainActivity extends Activity {
 
-	private TextView resultText;
 	// creating my global variables
     Context _context;
     Boolean _connected = false;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,13 +61,7 @@ public class MainActivity extends Activity {
 				
 				Log.i("User input", inputString);
 				
-				// calling my json class
-				Json newJson = new Json();
-				
-				Log.i("returned info", newJson.returnJsonData(inputString));
-				
 				// my handler.  Handles the return info
-				
 				final Handler JsonHandler = new Handler(){
 
 					@Override
