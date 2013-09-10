@@ -34,11 +34,7 @@ public class JsonService extends IntentService{
 		// loading in the passed in name of the band we wish to get more info on.
 		Messenger messenger = (Messenger) extras.get(NAME_OF_BAND);
 		String keyOfThings = (String) extras.get(KEY_OF_THINGS);
-		
-		
-		//Log.i("Passed in name", nameOfPassedInBand);
-		
-		// this handles when the handler is done
+
 		
 		Message message = Message.obtain();
 		message.arg1 = Activity.RESULT_OK;
