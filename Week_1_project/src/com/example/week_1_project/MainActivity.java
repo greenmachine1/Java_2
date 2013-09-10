@@ -69,21 +69,21 @@ public class MainActivity extends Activity {
 				
 				// my handler.  Handles the return info
 				
-				Handler JsonHandler = new Handler(){
+				final Handler JsonHandler = new Handler(){
 
 					@Override
-					public void handleMessage(Message msg) {
-						// TODO Auto-generated method stub
+					public void handleMessage(Message message){
 						
-						String response = null;
-						if(msg.arg1 == RESULT_OK && msg.obj != null){
-							try{
-							response = (String) msg.obj;
-							} catch(Exception e){
-								Log.e("", e.getMessage().toString());
-							}
+						// what gets returned from the called service
+						Object returnedObject = message.obj;
+						
+						// casting the object to a string
+						String returnedObjectString = returnedObject.toString();
+						
+						if(message.arg1 == RESULT_OK && returnedObject != null){
 							
-							resultText.setText(response);
+							// do things here
+							Log.i("object", returnedObjectString);
 						}
 					}
 		    		
@@ -96,7 +96,8 @@ public class MainActivity extends Activity {
 				Intent myServiceIntent = new Intent(_context, JsonService.class);
 				
 				// basically this passes info to my service
-				myServiceIntent.putExtra(JsonService.NAME_OF_BAND, jsonMessenger);
+				myServiceIntent.putExtra("messenger", jsonMessenger);
+				myServiceIntent.putExtra("key", inputString);
 				startService(myServiceIntent);
 			}
 		});

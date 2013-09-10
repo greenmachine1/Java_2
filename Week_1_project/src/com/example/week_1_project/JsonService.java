@@ -16,6 +16,7 @@ import android.util.Log;
 public class JsonService extends IntentService{
 
 	public static final String NAME_OF_BAND = "messenger";
+	public static final String KEY_OF_THINGS = "key";
 	
 	public JsonService() {
 		super("JsonService");
@@ -32,6 +33,7 @@ public class JsonService extends IntentService{
 		
 		// loading in the passed in name of the band we wish to get more info on.
 		Messenger messenger = (Messenger) extras.get(NAME_OF_BAND);
+		String keyOfThings = (String) extras.get(KEY_OF_THINGS);
 		
 		
 		//Log.i("Passed in name", nameOfPassedInBand);
@@ -40,7 +42,7 @@ public class JsonService extends IntentService{
 		
 		Message message = Message.obtain();
 		message.arg1 = Activity.RESULT_OK;
-		message.obj = "messenger";
+		message.obj = "messenger " + keyOfThings;
 		
 		try {
 			messenger.send(message);
