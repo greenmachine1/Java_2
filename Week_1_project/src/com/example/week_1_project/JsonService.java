@@ -69,24 +69,32 @@ public class JsonService extends IntentService{
 		// creation of url
 		String completeURL = "https://itunes.apple.com/search?term=" + userInput + "&entity=musicArtist&limit=1";
 		
-		URL finalURL;
-		try{
+		URL finalURL = null;
+		//try{
 			// dont actually need my UTF-8 involved in the url
-			finalURL = new URL(completeURL);
-			infoRequest newRequest = new infoRequest();
-			newRequest.execute(finalURL);
-			if(newRequest != null){
-				return "Sure";
+			try {
+				finalURL = new URL(completeURL);
+			} catch (MalformedURLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
+			//infoRequest newRequest = new infoRequest();
+			//newRequest.execute(finalURL);
+			//if(newRequest != null){
+			//	return "Sure";
+			//}
 	
-			}catch(MalformedURLException e){
-			Log.e("Bad Url", "malformed URL");
-			finalURL = null;
-			}
+			//}catch(MalformedURLException e){
+			//Log.e("Bad Url", "malformed URL");
+			//finalURL = null;
+			//}
 	
-	
+		String response = "";
+			response = WebInfo.getURLStringResponse(finalURL);
 		
-		
-		return null;
+			Log.i("info", response);
+
+		return response;
+
 	}
 }
