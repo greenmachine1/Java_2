@@ -4,12 +4,17 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import com.example.lib.Json.infoRequest;
 import com.example.lib.WebInfo;
 
 import android.app.Activity;
 import android.app.IntentService;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Message;
 import android.os.Messenger;
@@ -63,6 +68,24 @@ public class JsonService extends IntentService{
 		
 		// creation of url
 		String completeURL = "https://itunes.apple.com/search?term=" + userInput + "&entity=musicArtist&limit=1";
+		
+		URL finalURL;
+		try{
+			// dont actually need my UTF-8 involved in the url
+			finalURL = new URL(completeURL);
+			infoRequest newRequest = new infoRequest();
+			newRequest.execute(finalURL);
+			if(newRequest != null){
+				return "Sure";
+			}
+	
+			}catch(MalformedURLException e){
+			Log.e("Bad Url", "malformed URL");
+			finalURL = null;
+			}
+	
+	
+		
 		
 		return null;
 	}
