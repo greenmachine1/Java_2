@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.view.View.OnClickListener;
 
@@ -23,6 +24,7 @@ public class MainActivity extends Activity {
     Context _context;
     Boolean _connected = false;
     TextView text;
+    ListView listView;
     
     FileManager m_file;
     String fileName = "returned_json.txt";
@@ -35,6 +37,12 @@ public class MainActivity extends Activity {
         _context = this;
         
         text = (TextView)findViewById(R.id.resultText);
+        
+        // targetting my listView
+        listView = (ListView)this.findViewById(R.id.list);
+        View listHeader = this.getLayoutInflater().inflate(R.layout.list_header, null);
+        listView.addHeaderView(listHeader);
+        
         
         // Detect network connection
         _connected = WebInfo.getConnectionStatus(_context);
