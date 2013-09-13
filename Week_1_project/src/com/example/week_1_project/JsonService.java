@@ -46,12 +46,12 @@ public class JsonService extends IntentService{
 		String keyOfThings = (String) extras.get(KEY_OF_THINGS);
 
 		// calling on my returnJsonData method
-		returnJsonData(keyOfThings);
+		//returnJsonData(keyOfThings);
 		
 		
 		Message message = Message.obtain();
 		message.arg1 = Activity.RESULT_OK;
-		message.obj = "messenger " + keyOfThings;
+		message.obj = "messenger " + returnJsonData(keyOfThings);
 		
 		try {
 			messenger.send(message);
@@ -78,21 +78,12 @@ public class JsonService extends IntentService{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			//infoRequest newRequest = new infoRequest();
-			//newRequest.execute(finalURL);
-			//if(newRequest != null){
-			//	return "Sure";
-			//}
-	
-			//}catch(MalformedURLException e){
-			//Log.e("Bad Url", "malformed URL");
-			//finalURL = null;
-			//}
-	
-		String response = "";
+
+			// creating a temp string to hold the response
+			String response = "";
 			response = WebInfo.getURLStringResponse(finalURL);
 		
-			Log.i("info", response);
+			//Log.i("info", response);
 
 		return response;
 
