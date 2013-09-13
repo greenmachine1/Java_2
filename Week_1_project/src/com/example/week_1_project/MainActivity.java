@@ -76,6 +76,9 @@ public class MainActivity extends Activity {
 						if(message.arg1 == RESULT_OK && returnedObject != null){
 							
 							// do things here
+							TextView text = (TextView)findViewById(R.id.resultText);
+							text.setText(returnedObjectString);
+							
 							Log.i("object", returnedObjectString);
 						}
 					}

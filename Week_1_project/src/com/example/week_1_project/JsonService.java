@@ -45,10 +45,7 @@ public class JsonService extends IntentService{
 		Messenger messenger = (Messenger) extras.get(NAME_OF_BAND);
 		String keyOfThings = (String) extras.get(KEY_OF_THINGS);
 
-		// calling on my returnJsonData method
-		//returnJsonData(keyOfThings);
-		
-		
+		// obtaining my object that gets returned from my Json Data
 		Message message = Message.obtain();
 		message.arg1 = Activity.RESULT_OK;
 		message.obj = "messenger " + returnJsonData(keyOfThings);
@@ -82,10 +79,7 @@ public class JsonService extends IntentService{
 			// creating a temp string to hold the response
 			String response = "";
 			response = WebInfo.getURLStringResponse(finalURL);
-		
-			//Log.i("info", response);
 
 		return response;
-
 	}
 }
