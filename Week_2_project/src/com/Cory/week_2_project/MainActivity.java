@@ -47,7 +47,7 @@ public class MainActivity extends Activity {
          // not available
          else {
         	 String stringToDisplay = m_file.readStringFile(_context, fileName);
-        	 Log.i("existing file", stringToDisplay);
+        	 text.setText(stringToDisplay);
          }
          
          // creation of my go button
