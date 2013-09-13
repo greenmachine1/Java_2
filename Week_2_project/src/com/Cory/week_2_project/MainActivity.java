@@ -75,7 +75,7 @@ public class MainActivity extends Activity {
 		    	}; 
 				
 				
-				
+				// creation of my messenger to the service
 		    	Messenger jsonMessenger = new Messenger(JsonHandler);
 				
 				Intent myServiceIntent = new Intent(_context, JsonService.class);
