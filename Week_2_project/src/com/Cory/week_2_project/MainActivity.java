@@ -1,4 +1,5 @@
 package com.Cory.week_2_project;
+import com.Cory.week_2_project.FileManager;
 import com.Cory.lib.WebInfo;
 
 import android.os.Bundle;
@@ -21,6 +22,9 @@ public class MainActivity extends Activity {
 	// creating my global variables
     Context _context;
     Boolean _connected = false;
+    
+    FileManager m_file;
+    String fileName = "returned_json.txt";
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +70,11 @@ public class MainActivity extends Activity {
 							
 							// do things here
 							TextView text = (TextView)findViewById(R.id.resultText);
+							
+							// calls on my FileManager class
+					        m_file = FileManager.getInstance();
+					        m_file.writeStringFile(_context, fileName, returnedObjectString);
+							
 							text.setText(returnedObjectString);
 							
 							Log.i("object", returnedObjectString);

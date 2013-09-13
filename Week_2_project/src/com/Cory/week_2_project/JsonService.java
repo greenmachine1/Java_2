@@ -45,7 +45,7 @@ public class JsonService extends IntentService{
 		// obtaining my object that gets returned from my Json Data
 		Message message = Message.obtain();
 		message.arg1 = Activity.RESULT_OK;
-		message.obj = "messenger " + returnJsonData(keyOfThings);
+		message.obj = returnJsonData(keyOfThings);
 		
 		try {
 			messenger.send(message);
