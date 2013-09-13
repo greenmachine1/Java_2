@@ -82,7 +82,7 @@ public class MainActivity extends Activity {
 					        m_file = FileManager.getInstance();
 					        m_file.writeStringFile(_context, fileName, returnedObjectString);
 							
-							text.setText(returnedObjectString);
+							text.setText(m_file.readStringFile(_context, fileName));
 							
 							Log.i("object", returnedObjectString);
 						}
@@ -90,6 +90,8 @@ public class MainActivity extends Activity {
 		    		
 		    	}; 
 				
+		    	
+		    	
 				
 				// creation of my messenger to the service
 		    	Messenger jsonMessenger = new Messenger(JsonHandler);
