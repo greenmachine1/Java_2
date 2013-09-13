@@ -22,6 +22,7 @@ public class MainActivity extends Activity {
 	// creating my global variables
     Context _context;
     Boolean _connected = false;
+    TextView text;
     
     FileManager m_file;
     String fileName = "returned_json.txt";
@@ -33,11 +34,20 @@ public class MainActivity extends Activity {
        
         _context = this;
         
+        text = (TextView)findViewById(R.id.resultText);
+        
         // Detect network connection
         _connected = WebInfo.getConnectionStatus(_context);
          if(_connected)
          {
         	 Log.i("Network Connection", WebInfo.getConnectionType(_context));
+         }
+         
+         // basically this is the cache data that gets displayed if internet connection is
+         // not available
+         else {
+        	 String stringToDisplay = m_file.readStringFile(_context, fileName);
+        	 Log.i("existing file", stringToDisplay);
          }
          
          // creation of my go button
@@ -67,9 +77,6 @@ public class MainActivity extends Activity {
 						String returnedObjectString = returnedObject.toString();
 						
 						if(message.arg1 == RESULT_OK && returnedObject != null){
-							
-							// do things here
-							TextView text = (TextView)findViewById(R.id.resultText);
 							
 							// calls on my FileManager class
 					        m_file = FileManager.getInstance();
