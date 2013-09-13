@@ -46,8 +46,13 @@ public class MainActivity extends Activity {
          // basically this is the cache data that gets displayed if internet connection is
          // not available
          else {
-        	 String stringToDisplay = m_file.readStringFile(_context, fileName);
-        	 text.setText(stringToDisplay);
+        	 if(m_file.readStringFile(_context, fileName) != null){
+        		 String stringToDisplay = m_file.readStringFile(_context, fileName);
+        		 text.setText(stringToDisplay);
+        	 }
+        	 else{
+        		 return;
+        	 }
          }
          
          // creation of my go button
@@ -90,6 +95,7 @@ public class MainActivity extends Activity {
 		    		
 		    	}; 
 				
+		    	
 		    	
 		    	
 				
