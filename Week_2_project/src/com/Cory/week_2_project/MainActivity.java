@@ -81,7 +81,7 @@ public class MainActivity extends Activity {
 				
 				// targetting the main edit text box
 				EditText userEnteredField = (EditText) findViewById(R.id.userEnteredText);
-				userEnteredField.setText(CollectionProvider.itunesData.CONTENT_URI.toString());
+				//userEnteredField.setText(CollectionProvider.itunesData.CONTENT_URI.toString());
 				
 				String inputString = userEnteredField.getText().toString();
 				
