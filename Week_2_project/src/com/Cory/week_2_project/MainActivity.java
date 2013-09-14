@@ -62,7 +62,7 @@ public class MainActivity extends Activity {
          else {
         	 if(m_file.readStringFile(_context, fileName) != null){
         		 String stringToDisplay = m_file.readStringFile(_context, fileName);
-        		 text.setText(stringToDisplay);
+        		 //text.setText(stringToDisplay);
         	 }
         	 else{
         		 return;
@@ -101,9 +101,11 @@ public class MainActivity extends Activity {
 					        m_file = FileManager.getInstance();
 					        m_file.writeStringFile(_context, fileName, returnedObjectString);
 							
-							text.setText(m_file.readStringFile(_context, fileName));
+							//text.setText(m_file.readStringFile(_context, fileName));
 							
-							Log.i("object", returnedObjectString);
+							//Log.i("object", returnedObjectString);
+					        
+					        displayData();
 						}
 					}
 		    		
@@ -140,6 +142,15 @@ public class MainActivity extends Activity {
     		
     		// getting the array from the field "results"
     		results = job.getJSONArray("results");
+    		
+    		// gathers the specific fields
+    		String artistName = results.getJSONObject(0).getString("artistName").toString();
+    		String artistGenre = results.getJSONObject(0).getString("primaryGenreName").toString();
+    		String artistURL = results.getJSONObject(0).getString("artistLinkUrl").toString();
+    		
+    		text.setText("artistName: " + artistName + "artistGenre: " + artistGenre + "artistURL: " + artistURL);
+    		
+    		
     	} catch(Exception e){
     		
     	}
