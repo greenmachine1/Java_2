@@ -1,6 +1,7 @@
 package com.Cory.week_2_project;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.content.ContentProvider;
@@ -85,15 +86,35 @@ public class CollectionProvider extends ContentProvider{
 		
 		MatrixCursor result = new MatrixCursor(itunesData.PROJECTION);
 		
-		String JSONStorage = m_file.readStringFile(getContext(), fileName);
+		String JSONString = m_file.readStringFile(getContext(), fileName);
 		
 		JSONObject job = null;
 		JSONArray recordArray = null;
+		JSONObject field = null;
 		
+		try{
+			job = new JSONObject(JSONString);
+			recordArray = job.getJSONArray("results");
+		} catch(JSONException e){
+			e.printStackTrace();
+		}
+		
+		if(recordArray == null){
+			return result;
+		}
 		
 		switch(uriMatcher.match(uri)){
 		case ITEMS:
-			
+			for (int i = 0; i < recordArray.length(); i++){
+				try{
+					// this should return the individual array objects
+					result.addRow(new Object[] {i + 1, recordArray.get(1), recordArray.get(2), recordArray.get(3)});
+					
+					
+				} catch (JSONException e){
+					e.printStackTrace();
+				}
+			}
 			
 		
 		case ITEMS_ID:
