@@ -15,6 +15,7 @@ import android.os.Messenger;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -80,6 +81,8 @@ public class MainActivity extends Activity {
 				
 				// targetting the main edit text box
 				EditText userEnteredField = (EditText) findViewById(R.id.userEnteredText);
+				userEnteredField.setText(CollectionProvider.itunesData.CONTENT_URI.toString());
+				
 				String inputString = userEnteredField.getText().toString();
 				
 				Log.i("User input", inputString);
@@ -155,6 +158,8 @@ public class MainActivity extends Activity {
     		displayMap.put("artist", artistName);
     		displayMap.put("genre", artistGenre);
     		displayMap.put("url", artistURL);
+    		
+    		//displayMap.put("artist", cursor.getString(1));
     		
     		mylist.add(displayMap);
     		

@@ -121,7 +121,7 @@ public class CollectionProvider extends ContentProvider{
 			
 			
 		}
-		return null;
+		return result;
 	}
 
 	@Override
