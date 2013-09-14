@@ -1,4 +1,10 @@
 package com.Cory.week_2_project;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import com.Cory.week_2_project.FileManager;
 import com.Cory.lib.WebInfo;
 
@@ -120,6 +126,25 @@ public class MainActivity extends Activity {
 		});
         
         
+    }
+    
+    public void displayData(){
+    	// loading my file into a string
+    	String JSONString = m_file.readStringFile(this, fileName);
+    	
+    	ArrayList<HashMap<String, String>>mylist = new ArrayList<HashMap<String,String>>();
+    	JSONObject job = null;
+    	JSONArray results = null;
+    	
+    	try{
+    		
+    		// getting the array from the field "results"
+    		results = job.getJSONArray("results");
+    	} catch(Exception e){
+    		
+    	}
+    	
+    	
     }
 
 
