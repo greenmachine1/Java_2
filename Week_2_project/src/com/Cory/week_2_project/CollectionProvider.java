@@ -1,5 +1,8 @@
 package com.Cory.week_2_project;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.content.UriMatcher;
@@ -84,14 +87,18 @@ public class CollectionProvider extends ContentProvider{
 		
 		String JSONStorage = m_file.readStringFile(getContext(), fileName);
 		
+		JSONObject job = null;
+		JSONArray recordArray = null;
+		
+		
 		switch(uriMatcher.match(uri)){
 		case ITEMS:
-			return itunesData.CONTENT_TYPE;
+			
 			
 		
 		case ITEMS_ID:
-			return itunesData.CONTENT_ITEM_TYPE;
-		
+			
+			
 		}
 		return null;
 	}
