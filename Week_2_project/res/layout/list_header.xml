@@ -12,14 +12,14 @@
         android:layout_height="wrap_content"/>
     <TextView
         android:id="@+id/genre_header"
-        android:text="Artist"
+        android:text="Genre"
         android:layout_weight="1"
         android:paddingLeft="5dp"
         android:layout_width="0dip"
         android:layout_height="wrap_content"/>
     <TextView
         android:id="@+id/url_header"
-        android:text="Artist"
+        android:text="URL"
         android:layout_weight="1"
         android:paddingLeft="5dp"
         android:layout_width="0dip"

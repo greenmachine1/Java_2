@@ -21,6 +21,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.view.View.OnClickListener;
 
@@ -141,6 +142,7 @@ public class MainActivity extends Activity {
     	try{
     		
     		// getting the array from the field "results"
+    		job = new JSONObject(JSONString);
     		results = job.getJSONArray("results");
     		
     		// gathers the specific fields
@@ -148,8 +150,20 @@ public class MainActivity extends Activity {
     		String artistGenre = results.getJSONObject(0).getString("primaryGenreName").toString();
     		String artistURL = results.getJSONObject(0).getString("artistLinkUrl").toString();
     		
-    		text.setText("artistName: " + artistName + "artistGenre: " + artistGenre + "artistURL: " + artistURL);
+    		//text.setText("artistName: " + artistName + "artistGenre: " + artistGenre + "artistURL: " + artistURL);
+    		HashMap<String, String> displayMap = new HashMap<String, String>();
+    		displayMap.put("artist", artistName);
+    		displayMap.put("genre", artistGenre);
+    		displayMap.put("url", artistURL);
     		
+    		mylist.add(displayMap);
+    		
+    		// this is complicated but it basically assigns the rows for each element
+    		SimpleAdapter adapter = new SimpleAdapter(this, mylist, R.layout.list_row, 
+    				new String[] {"artist", "genre", "url"}, 
+    				new int[] {R.id.artist, R.id.genre, R.id.url});
+    		
+    		listView.setAdapter(adapter);
     		
     	} catch(Exception e){
     		
