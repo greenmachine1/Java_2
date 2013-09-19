@@ -22,7 +22,7 @@ public class BandInfo extends Activity {
 			String newString = data.getString("userInput");
 			
 			topTextBox = (TextView)findViewById(R.id.topText);
-			topTextBox.setText(newString);
+			topTextBox.setText("Here are the results for " + newString);
 			
 			Log.i("user", "" + newString);
 		}
