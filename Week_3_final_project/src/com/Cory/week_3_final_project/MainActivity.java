@@ -22,14 +22,10 @@ public class MainActivity extends Activity {
 		// assigning my userInputText
 		userInputText = (EditText)findViewById(R.id.userInput);
 
-		
-		
 		// button for my band info retrieval
 		Button bandInfoButton = (Button)findViewById(R.id.bandInfo);
 		bandInfoButton.setOnClickListener(new OnClickListener(){
 			
-			
-		
 
 			@Override
 			public void onClick(View v) {
