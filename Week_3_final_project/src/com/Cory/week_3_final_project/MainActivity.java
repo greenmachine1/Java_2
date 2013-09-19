@@ -2,6 +2,7 @@ package com.Cory.week_3_final_project;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -19,8 +20,14 @@ public class MainActivity extends Activity {
 		bandInfoButton.setOnClickListener(new OnClickListener(){
 
 			@Override
-			public void onClick(View arg0) {
+			public void onClick(View v) {
+				// setting up the intent for the next activity
+				Intent myIntent = new Intent(v.getContext(), BandInfo.class);
 				
+				// this will pass data to my activity (key, value)
+				myIntent.putExtra("userInput", "yes");
+				
+				v.getContext().startActivity(myIntent);
 				
 			}
 			
@@ -32,7 +39,10 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+				
+				// setting up the intent for the next activity
+				Intent myIntent = new Intent(v.getContext(), PulledInfo.class);
+				v.getContext().startActivity(myIntent);
 				
 			}
 			
