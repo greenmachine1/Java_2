@@ -1,12 +1,10 @@
 package com.Cory.week_3_final_project;
 
-import com.Cory.lib.WebInfo;
 
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -19,7 +17,7 @@ public class MainActivity extends Activity {
 	Context _context;
 	
 	EditText userInputText;
-	Boolean _connected;
+
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -27,13 +25,6 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.main);
 		
 		_context = this;
-		
-		// Detect network connection
-        _connected = WebInfo.getConnectionStatus(_context);
-         if(_connected)
-         {
-        	 Log.i("Network Connection", WebInfo.getConnectionType(_context));
-         }
 		
 		// assigning my userInputText
 		userInputText = (EditText)findViewById(R.id.userInput);
@@ -52,13 +43,16 @@ public class MainActivity extends Activity {
 				
 				// this will pass data to my activity (key, value)
 				myIntent.putExtra("userInput", userInputString);
-				myIntent.putExtra("isConnected", _connected);
 				
 				v.getContext().startActivity(myIntent);
 				
 			}
 			
 		});
+		
+		
+		
+		
 		
 		// button for my pulled info 
 		Button pulledInfoButton = (Button)findViewById(R.id.goPulledInfo);
