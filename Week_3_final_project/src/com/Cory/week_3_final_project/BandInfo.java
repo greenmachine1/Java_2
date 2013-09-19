@@ -1,11 +1,16 @@
 package com.Cory.week_3_final_project;
 
-
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
+
+
+
+/*
+ * This activity will fetch data through json and display it 
+ * depending on the users input
+ */
 
 public class BandInfo extends Activity {
 	
