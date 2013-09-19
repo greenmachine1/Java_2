@@ -47,7 +47,7 @@ public class PulledInfo extends Activity {
 	public void displayData(){
 		
 		// having an issue with the context of this s
-		String JSONString = m_file.readStringFile(_context, fileName);
+		//String JSONString = m_file.readStringFile(_context, fileName);
 		
 		
     	/*
