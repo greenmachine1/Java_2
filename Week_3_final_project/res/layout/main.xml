@@ -3,6 +3,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    
+
+    <Button
+        android:id="@+id/bandInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Get Band Info" />
+
+    <Button
+        android:id="@+id/goPulledInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Previous Band Info" />
 
 </LinearLayout>

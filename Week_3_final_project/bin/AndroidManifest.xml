@@ -22,6 +22,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="BandInfo"></activity>
+        <activity android:name="PulledInfo"></activity>
     </application>
 
 </manifest>
