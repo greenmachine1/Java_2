@@ -27,6 +27,7 @@
         </activity>
         <activity android:name="BandInfo"></activity>
         <activity android:name="PulledInfo"></activity>
+        <service android:name="JsonService"></service>
     </application>
 
 </manifest>
