@@ -9,6 +9,7 @@ import org.json.JSONObject;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -32,7 +33,7 @@ public class PulledInfo extends Activity {
 		
 		// targetting my listView
         listView = (ListView)this.findViewById(R.id.list);
-        View listHeader = this.getLayoutInflater().inflate(R.layout.list_header, null);
+		View listHeader = this.getLayoutInflater().inflate(R.layout.list_header, null);
         listView.addHeaderView(listHeader);
 		
 		displayData();
@@ -42,13 +43,14 @@ public class PulledInfo extends Activity {
 	
 	public void displayData(){
 		
+		/*
 		String JSONString = m_file.readStringFile(_context, fileName);
     	
     	ArrayList<HashMap<String, String>>mylist = new ArrayList<HashMap<String,String>>();
     	JSONObject job = null;
     	JSONArray results = null;
     	
-    	/*
+    	
     	try{
     		
     		// getting the array from the field "results"
@@ -80,6 +82,6 @@ public class PulledInfo extends Activity {
     	} catch(Exception e){
     		
     	}*/
-    	
 	}
+	
 }
