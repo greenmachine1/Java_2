@@ -85,7 +85,21 @@ public class BandInfo extends Activity {
 						
 						// calls on my FileManager class
 				        m_file = SaveData.getInstance();
-				        m_file.writeStringFile(_context, fileName, returnedObjectString);
+				        //m_file.writeStringFile(_context, fileName, returnedObjectString);
+				        
+				        // trying to append the object to the previous one to create a list
+				        if(m_file.readStringFile(_context, fileName) != null){
+				        	String newStoredString = m_file.readStringFile(_context, fileName) + " " + returnedObjectString;
+				        	
+				        	// if this works, we need to store newStoredString
+				        	Log.i("combined String", "" + newStoredString);
+				        	
+				        	// overwritting the exsisting file
+				        	m_file.writeStringFile(_context, fileName, newStoredString);
+				        }
+				        else{
+				        	m_file.writeStringFile(_context, fileName, returnedObjectString);
+				        }
 						
 						//text.setText(m_file.readStringFile(_context, fileName));
 						
