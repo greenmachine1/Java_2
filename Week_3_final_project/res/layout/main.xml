@@ -4,6 +4,20 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
+    <TextView
+        android:id="@+id/searchText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Search for a band"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+   	<EditText
+        android:id="@+id/userInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" >
+    </EditText>
+
     <Button
         android:id="@+id/bandInfo"
         android:layout_width="match_parent"

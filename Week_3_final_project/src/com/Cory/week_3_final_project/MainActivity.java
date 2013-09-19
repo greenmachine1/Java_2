@@ -7,25 +7,39 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class MainActivity extends Activity {
 
+	// global variables
+	EditText userInputText;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 		
+		// assigning my userInputText
+		userInputText = (EditText)findViewById(R.id.userInput);
+
+		
+		
 		// button for my band info retrieval
 		Button bandInfoButton = (Button)findViewById(R.id.bandInfo);
 		bandInfoButton.setOnClickListener(new OnClickListener(){
+			
+			
+		
 
 			@Override
 			public void onClick(View v) {
 				// setting up the intent for the next activity
 				Intent myIntent = new Intent(v.getContext(), BandInfo.class);
 				
+				String userInputString = userInputText.getText().toString();
+				
 				// this will pass data to my activity (key, value)
-				myIntent.putExtra("userInput", "yes");
+				myIntent.putExtra("userInput", userInputString);
 				
 				v.getContext().startActivity(myIntent);
 				
