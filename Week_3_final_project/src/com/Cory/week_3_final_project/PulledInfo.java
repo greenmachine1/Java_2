@@ -1,5 +1,6 @@
 package com.Cory.week_3_final_project;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -8,7 +9,9 @@ import org.json.JSONObject;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.os.Bundle;
+import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
@@ -43,9 +46,11 @@ public class PulledInfo extends Activity {
 	
 	public void displayData(){
 		
-		/*
-		String JSONString = m_file.readStringFile(_context, fileName);
-    	
+		// having an issue with the context of this s
+		//String JSONString = m_file.readStringFile(_context, fileName);
+		
+		
+    	/*
     	ArrayList<HashMap<String, String>>mylist = new ArrayList<HashMap<String,String>>();
     	JSONObject job = null;
     	JSONArray results = null;
