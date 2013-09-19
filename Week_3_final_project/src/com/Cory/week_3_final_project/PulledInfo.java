@@ -7,26 +7,34 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 public class PulledInfo extends Activity {
 	
-	
+	// global variables
 	SaveData m_file;
 	String fileName = "returned_json.txt";
 	
 	ListView listView;
 	
-	
+	Context _context;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.pulledinfo);
 		
-		// this needs to pull the json data from the stored file and seperate the needed info into columns
+		_context = this;
+		
+		// targetting my listView
+        listView = (ListView)this.findViewById(R.id.list);
+        View listHeader = this.getLayoutInflater().inflate(R.layout.list_header, null);
+        listView.addHeaderView(listHeader);
+		
 		displayData();
 		
 		
@@ -34,12 +42,13 @@ public class PulledInfo extends Activity {
 	
 	public void displayData(){
 		
-		String JSONString = m_file.readStringFile(this, fileName);
+		String JSONString = m_file.readStringFile(_context, fileName);
     	
     	ArrayList<HashMap<String, String>>mylist = new ArrayList<HashMap<String,String>>();
     	JSONObject job = null;
     	JSONArray results = null;
     	
+    	/*
     	try{
     		
     		// getting the array from the field "results"
@@ -70,7 +79,7 @@ public class PulledInfo extends Activity {
     		
     	} catch(Exception e){
     		
-    	}
+    	}*/
     	
 	}
 }

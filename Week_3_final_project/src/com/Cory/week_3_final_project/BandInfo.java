@@ -42,6 +42,7 @@ public class BandInfo extends Activity {
 	// for my save portion
 	SaveData m_file;
     String fileName = "returned_json.txt";
+    String bandFileName = "band_file_name.txt";
     
     ListView listView;
 	
@@ -86,6 +87,9 @@ public class BandInfo extends Activity {
 						// calls on my FileManager class
 				        m_file = SaveData.getInstance();
 				        //m_file.writeStringFile(_context, fileName, returnedObjectString);
+				        
+				        // writting the exsisting band to a different file
+				        m_file.writeStringFile(_context, bandFileName, returnedObjectString);
 				        
 				        // trying to append the object to the previous one to create a list
 				        if(m_file.readStringFile(_context, fileName) != null){
@@ -136,7 +140,7 @@ public class BandInfo extends Activity {
 	
 	public void displayData(){
     	// loading my file into a string
-    	String JSONString = m_file.readStringFile(this, fileName);
+    	String JSONString = m_file.readStringFile(this, bandFileName);
     	
     	ArrayList<HashMap<String, String>>mylist = new ArrayList<HashMap<String,String>>();
     	JSONObject job = null;
